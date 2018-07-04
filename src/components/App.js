@@ -1,14 +1,14 @@
 import React from 'react'
 
 const countChange = (func) => {
-  return (e => {
+  return e => {
     e.preventDefault()
     func()
-  })
+  }
 }
 
 export default (props) => {
-  console.log(props);
+  console.log(props)
   return (
     <div>
       <button onClick={countChange(props.countup)}> {'+'} </button>
