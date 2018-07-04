@@ -1,14 +1,19 @@
 import React from 'react'
-import Footer from './Footer'
-import AddTodo from '../containers/AddTodo'
-import VisibleTodoList from '../containers/VisibleTodoList'
 
-const App = () => (
-  <div>
-    <AddTodo />
-    <VisibleTodoList />
-    <Footer />
-  </div>
-)
+const countChange = (func) => {
+  return (e => {
+    e.preventDefault()
+    func()
+  })
+}
 
-export default App
+export default (props) => {
+  console.log(props);
+  return (
+    <div>
+      <button onClick={countChange(props.countup)}> {'+'} </button>
+      <h1> { props.count } </h1>
+      <button onClick={countChange(props.countdown)}> {'-'} </button>
+    </div>
+  )
+}

@@ -1,8 +1,10 @@
-import { combineReducers } from 'redux'
-import todos from './todos'
-import visibilityFilter from './visibilityFilter'
+import { handleActions } from 'redux-actions';
 
-export default combineReducers({
-  todos,
-  visibilityFilter
-})
+const initState = {
+  count: 0
+};
+
+export default handleActions({
+  'COUNT_UP': (state) => ({ count: state.count + 1 }),
+  'COUNT_DOWN': (state) => ({ count: state.count - 1 })
+}, initState);
